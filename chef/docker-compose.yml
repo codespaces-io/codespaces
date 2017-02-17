@@ -1,0 +1,56 @@
+version: '2'
+
+networks:
+  chef:
+    driver: bridge
+
+services:
+  ws:
+    image: chef-ws
+    ports:
+      - "8000:8000"
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+#    network_mode: host
+    networks:
+      - chef
+    container_name: ws
+    domainname: codespaces.io
+    hostname: ws
+  node1:
+    image: chef-node-centos-6
+    ports:
+       - "83:80"
+    networks:
+      - chef
+    container_name: node1
+    domainname: codespaces.io
+    hostname: node1
+  node2:
+    image: chef-node-centos-6
+    ports:
+       - "81:80"
+    networks:
+      - chef
+    container_name: node2
+    domainname: codespaces.io
+    hostname: node2
+  node3:
+    image: chef-node-centos-6
+    ports:
+      - "82:80"
+    networks:
+      - chef
+    container_name: node3
+    domainname: codespaces.io
+    hostname: node3
+  node4:
+    image: chef-node-centos-6
+    ports:
+      - "3306:3306"
+    networks:
+      - chef
+    container_name: node4
+    domainname: codespaces.io
+    hostname: node4

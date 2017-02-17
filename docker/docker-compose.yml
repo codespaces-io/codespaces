@@ -1,0 +1,21 @@
+version: '2'
+
+networks:
+  codespace:
+    driver: bridge
+
+services:
+  docker:
+    image: docker-controller
+    ports:
+      - "8000:8000"
+      - "80:80"
+    environment:
+      JAVA_ARGS: "-Xms256m -Xmx256m -XX:MaxPermSize=256m"
+    volumes:
+      - /control:/workspace
+      - /var/run/docker.sock:/var/run/docker.sock
+    network_mode: host
+    container_name: docker
+    domainname: codespaces.io
+    hostname: docker
