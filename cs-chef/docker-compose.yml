@@ -6,7 +6,7 @@ networks:
 
 services:
   ws:
-    image: chef-ws
+    image: codespaces/chef-ws:v0.1.0
     ports:
       - "8000:8000"
       - "80:80"
@@ -18,8 +18,10 @@ services:
     container_name: ws
     domainname: codespaces.io
     hostname: ws
+    restart: always
+
   node1:
-    image: chef-node-centos-6
+    image: codespaces/chef-node-centos-6:v0.1.0
     ports:
        - "83:80"
     networks:
@@ -27,8 +29,10 @@ services:
     container_name: node1
     domainname: codespaces.io
     hostname: node1
+    restart: always
+
   node2:
-    image: chef-node-centos-6
+    image: codespaces/chef-node-centos-6:v0.1.0
     ports:
        - "81:80"
     networks:
@@ -36,8 +40,10 @@ services:
     container_name: node2
     domainname: codespaces.io
     hostname: node2
+    restart: always
+
   node3:
-    image: chef-node-centos-6
+    image: codespaces/chef-node-centos-6:v0.1.0
     ports:
       - "82:80"
     networks:
@@ -45,8 +51,10 @@ services:
     container_name: node3
     domainname: codespaces.io
     hostname: node3
+    restart: always
+
   node4:
-    image: chef-node-centos-6
+    image: codespaces/chef-node-centos-6:v0.1.0
     ports:
       - "3306:3306"
     networks:
@@ -54,3 +62,4 @@ services:
     container_name: node4
     domainname: codespaces.io
     hostname: node4
+    restart: always
