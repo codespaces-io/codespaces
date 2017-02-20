@@ -6,7 +6,7 @@ networks:
 
 services:
   control:
-    image: codespaces/ansible-control:v0.3.2
+    image: codespaces/ansible-control:v0.3.3
     ports:
       - "8000:8000"
     volumes:
