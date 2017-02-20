@@ -6,7 +6,7 @@ networks:
 
 services:
   puppet:
-    image: codespaces/puppet-master:v0.1.0
+    image: codespaces/puppet-master:v0.1.1
     ports:
       - "8000:8000"
       - "80:80"
