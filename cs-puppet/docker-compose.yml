@@ -6,7 +6,7 @@ networks:
 
 services:
   puppet:
-    image: puppet-master
+    image: codespaces/puppet-master:v0.1.0
     ports:
       - "8000:8000"
       - "80:80"
@@ -19,9 +19,10 @@ services:
     container_name: puppet
     domainname: codespaces.io
     hostname: puppet
+    restart: always
 
   node1:
-    image: puppet-node-centos-6
+    image: codespaces/puppet-node-centos-6:v0.1.0
     ports:
        - "81:80"
     networks:
@@ -29,9 +30,10 @@ services:
     container_name: node1
     domainname: codespaces.io
     hostname: node1
+    restart: always
 
   node2:
-    image: puppet-node-centos-6
+    image: codespaces/puppet-node-centos-6:v0.1.0
     ports:
        - "82:80"
     networks:
@@ -39,9 +41,10 @@ services:
     container_name: node2
     domainname: codespaces.io
     hostname: node2
+    restart: always
 
   node3:
-    image: puppet-node-centos-6
+    image: codespaces/puppet-node-centos-6:v0.1.0
     ports:
       - "83:80"
     networks:
@@ -49,9 +52,10 @@ services:
     container_name: node3
     domainname: codespaces.io
     hostname: node3
+    restart: always
 
   node4:
-    image: puppet-node-centos-6
+    image: codespaces/puppet-node-centos-6:v0.1.0
     ports:
       - "84:80"
       - "3306:3306"
@@ -60,4 +64,4 @@ services:
     container_name: node4
     domainname: codespaces.io
     hostname: node4
-
+    restart: always
