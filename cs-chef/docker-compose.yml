@@ -6,7 +6,7 @@ networks:
 
 services:
   ws:
-    image: codespaces/chef-ws:v0.1.0
+    image: codespaces/chef-ws:v0.1.1
     ports:
       - "8000:8000"
       - "80:80"
@@ -21,7 +21,7 @@ services:
     restart: always
 
   node1:
-    image: codespaces/chef-node-centos-6:v0.1.0
+    image: codespaces/chef-node-centos-6:v0.1.1
     ports:
        - "83:80"
     networks:
@@ -32,7 +32,7 @@ services:
     restart: always
 
   node2:
-    image: codespaces/chef-node-centos-6:v0.1.0
+    image: codespaces/chef-node-centos-6:v0.1.1
     ports:
        - "81:80"
     networks:
@@ -43,7 +43,7 @@ services:
     restart: always
 
   node3:
-    image: codespaces/chef-node-centos-6:v0.1.0
+    image: codespaces/chef-node-centos-6:v0.1.1
     ports:
       - "82:80"
     networks:
@@ -54,7 +54,7 @@ services:
     restart: always
 
   node4:
-    image: codespaces/chef-node-centos-6:v0.1.0
+    image: codespaces/chef-node-centos-6:v0.1.1
     ports:
       - "3306:3306"
     networks:
