@@ -23,7 +23,7 @@ services:
     networks:
       - custom
     domainname: codespaces.io
-    hostname: lb
+    hostname: node1
     restart: always
   node2:
     image: codespaces/ansible-node-centos-6:v0.3.6
@@ -32,7 +32,7 @@ services:
     networks:
       - custom
     domainname: codespaces.io
-    hostname: app1
+    hostname: node2
     restart: always
   node3:
     image: codespaces/ansible-node-centos-6:v0.3.6
@@ -41,7 +41,7 @@ services:
     networks:
       - custom
     domainname: codespaces.io
-    hostname: app2
+    hostname: node3
     restart: always
   node4:
     image: codespaces/ansible-node-centos-6:v0.3.6
@@ -50,5 +50,5 @@ services:
     networks:
       - custom
     domainname: codespaces.io
-    hostname: db
+    hostname: node4
     restart: always
