@@ -13,7 +13,6 @@ services:
     image: codespaces/chef-ws:v0.1.4
     ports:
       - "8000:8000"
-      - "80:80"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     network_mode: host
@@ -27,7 +26,7 @@ services:
   node1:
     image: codespaces/chef-node-centos-6:v0.1.2
     ports:
-       - "81:8080"
+       - "8081:8080"
     networks:
       chef:
         ipv4_address: 172.0.101.10
@@ -39,7 +38,7 @@ services:
   node2:
     image: codespaces/chef-node-centos-6:v0.1.2
     ports:
-       - "82:8080"
+       - "8082:8080"
     networks:
       chef:
         ipv4_address: 172.0.101.11
@@ -51,7 +50,8 @@ services:
   node3:
     image: codespaces/chef-node-centos-6:v0.1.2
     ports:
-      - "80:80"
+      - "8083:8080"
+      - "83:80"
     networks:
       chef:
         ipv4_address: 172.0.101.12
@@ -63,7 +63,8 @@ services:
   node4:
     image: codespaces/chef-node-centos-6:v0.1.2
     ports:
-      - "84:8080"
+      - "8084:8080"
+      - "80:80"
     networks:
       chef:
         ipv4_address: 172.0.101.13

@@ -19,7 +19,8 @@ services:
   node1:
     image: codespaces/ansible-node-centos-6:v0.3.6
     ports:
-       - "80:80"
+       - "8081:8080"
+       - "81:80"
     networks:
       - custom
     domainname: codespaces.io
@@ -28,7 +29,8 @@ services:
   node2:
     image: codespaces/ansible-node-centos-6:v0.3.6
     ports:
-       - "81:8080"
+       - "8082:8080"
+       - "82:80"
     networks:
       - custom
     domainname: codespaces.io
@@ -37,7 +39,8 @@ services:
   node3:
     image: codespaces/ansible-node-centos-6:v0.3.6
     ports:
-      - "82:8080"
+      - "8083:8080"
+      - "83:80"
     networks:
       - custom
     domainname: codespaces.io
@@ -46,9 +49,11 @@ services:
   node4:
     image: codespaces/ansible-node-centos-6:v0.3.6
     ports:
-      - "83:8080"
+      - "8084:8080"
+      - "80:80"
     networks:
       - custom
     domainname: codespaces.io
     hostname: node4
     restart: always
+
