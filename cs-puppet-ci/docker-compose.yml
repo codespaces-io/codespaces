@@ -1,0 +1,70 @@
+version: '2'
+
+networks:
+  puppet:
+    driver: bridge
+
+services:
+  puppet:
+    image: codespaces/puppet-master:v0.1.3
+    ports:
+      - "8000:8000"
+    environment:
+      JAVA_ARGS: "-Xms256m -Xmx256m -XX:MaxPermSize=256m"
+    volumes:
+      - /control:/workspace
+    networks:
+      - puppet
+    container_name: puppet
+    domainname: codespaces.io
+    hostname: puppet
+    restart: always
+
+  node1:
+    image: codespaces/puppet-node-centos-6:v0.1.3
+    ports:
+       - "8081:8080"
+       - "81:80"
+    networks:
+      - puppet
+    container_name: node1
+    domainname: codespaces.io
+    hostname: node1
+    restart: always
+
+  node2:
+    image: codespaces/puppet-node-centos-6:v0.1.3
+    ports:
+       - "8082:8080"
+       - "82:80"
+    networks:
+      - puppet
+    container_name: node2
+    domainname: codespaces.io
+    hostname: node2
+    restart: always
+
+  node3:
+    image: codespaces/puppet-node-centos-6:v0.1.3
+    ports:
+      - "8083:8080"
+      - "83:80"
+    networks:
+      - puppet
+    container_name: node3
+    domainname: codespaces.io
+    hostname: node3
+    restart: always
+
+  node4:
+    image: codespaces/puppet-node-centos-6:v0.1.3
+    ports:
+      - "8084:8080"
+      - "80:80"
+      - "3306:3306"
+    networks:
+      - puppet
+    container_name: node4
+    domainname: codespaces.io
+    hostname: node4
+    restart: always
