@@ -1,0 +1,59 @@
+version: '2'
+
+networks:
+  custom:
+    driver: bridge
+
+services:
+  control:
+    image: codespaces/ansible-control:v0.3.5
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./code:/workspace
+    networks:
+      - custom
+    domainname: codespaces.io
+    hostname: control
+    restart: always
+  node1:
+    image: codespaces/ansible-node-centos-6:v0.3.6
+    ports:
+       - "8081:8080"
+       - "81:80"
+    networks:
+      - custom
+    domainname: codespaces.io
+    hostname: node1
+    restart: always
+  node2:
+    image: codespaces/ansible-node-centos-6:v0.3.6
+    ports:
+       - "8082:8080"
+       - "82:80"
+    networks:
+      - custom
+    domainname: codespaces.io
+    hostname: node2
+    restart: always
+  node3:
+    image: codespaces/ansible-node-centos-6:v0.3.6
+    ports:
+      - "8083:8080"
+      - "83:80"
+    networks:
+      - custom
+    domainname: codespaces.io
+    hostname: node3
+    restart: always
+  node4:
+    image: codespaces/ansible-node-centos-6:v0.3.6
+    ports:
+      - "8084:8080"
+      - "80:80"
+    networks:
+      - custom
+    domainname: codespaces.io
+    hostname: node4
+    restart: always
+

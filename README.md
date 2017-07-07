@@ -36,3 +36,4 @@ To use Codespaces IDE,
   * Now you will be presented with the Codespaces IDE console.
 
 ![Landing](images/landing.jpg)
+
