@@ -13,9 +13,9 @@ services:
     environment:
       JAVA_ARGS: "-Xms256m -Xmx256m -XX:MaxPermSize=256m"
     volumes:
-      - /control:/workspace
+#      - /control:/workspace
       - /var/run/docker.sock:/var/run/docker.sock
-    network_mode: host
+    network_mode: bridge
     container_name: docker
     domainname: codespaces.io
     hostname: docker
