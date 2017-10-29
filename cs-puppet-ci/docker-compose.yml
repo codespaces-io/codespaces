@@ -11,8 +11,8 @@ services:
       - "8000:8000"
     environment:
       JAVA_ARGS: "-Xms256m -Xmx256m -XX:MaxPermSize=256m"
-    volumes:
-      - /control:/workspace
+#    volumes:
+#      - /control:/workspace
     networks:
       - puppet
     container_name: puppet
