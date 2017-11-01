@@ -15,8 +15,8 @@ services:
     volumes:
       - ./code:/workspace
     networks:
-      - custom
-          ipv4_address: 192.168.61.10
+      custom:
+        ipv4_address: 192.168.61.10
     domainname: codespaces.io
     hostname: control
     restart: always
@@ -26,8 +26,8 @@ services:
        - "8080:8080"
        - "80:80"
     networks:
-      - custom
-          ipv4_address:	192.168.61.11
+      custom:
+        ipv4_address: 192.168.61.11
     domainname: codespaces.io
     hostname: lb
     restart: always
@@ -37,8 +37,8 @@ services:
        - "8081:8080"
        - "81:80"
     networks:
-      - custom
-          ipv4_address: 192.168.61.12
+      custom:
+        ipv4_address: 192.168.61.12
     domainname: codespaces.io
     hostname: app2
     restart: always
@@ -48,8 +48,8 @@ services:
       - "8082:8080"
       - "82:80"
     networks:
-      - custom
-          ipv4_address: 192.168.61.13
+      custom:
+        ipv4_address: 192.168.61.13
     domainname: codespaces.io
     hostname: app2
     restart: always
@@ -60,9 +60,8 @@ services:
       - "83:80"
       - "3306:3306"
     networks:
-      - custom
-          ipv4_address: 192.168.61.14
+      custom:
+        ipv4_address: 192.168.61.14
     domainname: codespaces.io
     hostname: db
     restart: always
-
