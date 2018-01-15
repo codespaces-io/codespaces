@@ -40,7 +40,7 @@ services:
       custom:
         ipv4_address: 192.168.61.12
     domainname: codespaces.io
-    hostname: app2
+    hostname: app1
     restart: always
   app2:
     image: codespaces/ansible-node-centos-6:v0.3.6
