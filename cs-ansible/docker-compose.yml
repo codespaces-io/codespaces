@@ -23,7 +23,6 @@ services:
   lb:
     image: codespaces/ansible-node-centos-6:v0.3.6
     ports:
-       - "8080:8080"
        - "80:80"
     networks:
       custom:
@@ -34,7 +33,6 @@ services:
   app1:
     image: codespaces/ansible-node-centos-6:v0.3.6
     ports:
-       - "8081:8080"
        - "81:80"
     networks:
       custom:
@@ -45,7 +43,6 @@ services:
   app2:
     image: codespaces/ansible-node-centos-6:v0.3.6
     ports:
-      - "8082:8080"
       - "82:80"
     networks:
       custom:
@@ -53,11 +50,19 @@ services:
     domainname: codespaces.io
     hostname: app2
     restart: always
+  app3:
+    image: codespaces/ansible-node-ubuntu-1404:v0.1.0
+    ports:
+      - "83:80"
+    networks:
+      custom:
+        ipv4_address: 192.168.61.15
+    domainname: codespaces.io
+    hostname: app3
+    restart: always
   db:
     image: codespaces/ansible-node-centos-6:v0.3.6
     ports:
-      - "8083:8080"
-      - "83:80"
       - "3306:3306"
     networks:
       custom:
