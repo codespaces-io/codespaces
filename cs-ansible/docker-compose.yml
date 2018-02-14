@@ -7,13 +7,17 @@ networks:
       driver: default
       config:
         - subnet: 192.168.61.0/24
+        
+volumes: 
+  cs-ansible: 
+  
 services:
   control:
     image: codespaces/ansible-control:v0.4.0
     ports:
       - "8000:8000"
     volumes:
-      - ./code:/workspace
+      - cs-ansible:/workspace
     networks:
       custom:
         ipv4_address: 192.168.61.10
