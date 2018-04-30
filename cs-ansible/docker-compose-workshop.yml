@@ -1,0 +1,53 @@
+version: '2'
+
+networks:
+  custom:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.61.0/24
+services:
+  control:
+    image: codespaces/ansible-control:v0.4.0
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./code:/workspace
+    networks:
+      custom:
+        ipv4_address: 192.168.61.10
+    domainname: codespaces.io
+    hostname: control
+    restart: always
+  frontend:
+    image: codespaces/ansible-node-ubuntu-1404:v0.1.0
+    ports:
+       - "80:8079"
+    networks:
+      custom:
+        ipv4_address: 192.168.61.11
+    domainname: codespaces.io
+    hostname: frontend
+    restart: always
+  catalogue:
+    image: codespaces/ansible-node-ubuntu-1404:v0.1.0
+    ports:
+       - "7081:7081"
+    networks:
+      custom:
+        ipv4_address: 192.168.61.12
+    domainname: codespaces.io
+    hostname: catalogue
+    restart: always
+  carts:
+    image: codespaces/ansible-node-ubuntu-1404:v0.1.0
+    ports:
+      - "8081:8081"
+    networks:
+      custom:
+        ipv4_address: 192.168.61.13
+    domainname: codespaces.io
+    hostname: carts
+    restart: always
+
