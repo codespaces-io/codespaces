@@ -9,7 +9,7 @@ networks:
         - subnet: 192.168.61.0/24
 services:
   control:
-    image: codespaces/ansible-control:v1.0
+    image: codespaces/ansible-control:v2.0.3
     ports:
       - "8000:8000"
     volumes:
