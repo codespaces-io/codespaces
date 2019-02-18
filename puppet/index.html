@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Setting up Ansible Codespace - Codespaces Guide</title>
+  <title>Setting up Puppet Codespace - Codespaces Guide</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Setting up Ansible Codespace";
-    var mkdocs_page_input_path = "ansible.md";
+    var mkdocs_page_name = "Setting up Puppet Codespace";
+    var mkdocs_page_input_path = "puppet.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -53,12 +53,17 @@
     <a class="" href="..">Home</a>
 	    </li>
           
+            <li class="toctree-l1">
+		
+    <a class="" href="../ansible/">Setting up Ansible Codespace</a>
+	    </li>
+          
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">Setting up Ansible Codespace</a>
+    <a class="current" href="./">Setting up Puppet Codespace</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#setting-up-codespaces-ide-for-ansible">Setting up  Codespaces IDE for Ansible</a></li>
+    <li class="toctree-l2"><a href="#setting-up-codespaces-ide-for-puppet">Setting up  Codespaces IDE for puppet</a></li>
     
         <ul>
         
@@ -66,19 +71,12 @@
         
             <li><a class="toctree-l3" href="#nodes-available">Nodes Available</a></li>
         
-            <li><a class="toctree-l3" href="#adding-supporting-code">Adding Supporting Code</a></li>
-        
             <li><a class="toctree-l3" href="#managing-environment">Managing Environment</a></li>
         
         </ul>
     
 
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../puppet/">Setting up Puppet Codespace</a>
 	    </li>
           
         </ul>
@@ -103,7 +101,7 @@
     
       
     
-    <li>Setting up Ansible Codespace</li>
+    <li>Setting up Puppet Codespace</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -113,9 +111,9 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="setting-up-codespaces-ide-for-ansible">Setting up  Codespaces IDE for Ansible</h1>
+                <h1 id="setting-up-codespaces-ide-for-puppet">Setting up  Codespaces IDE for puppet</h1>
 <p>After installing Docker-Engine and Docker-Compose, change directory into the corresponding tool you want to setup the environment for.</p>
-<pre><code>cd cs-ansible
+<pre><code>cd cs-puppet
 </code></pre>
 
 <p>Then all you need to do is to run</p>
@@ -136,7 +134,7 @@
 </ul>
 <p><img alt="Email" src="../images/codespaces.JPG" /></p>
 <h2 id="nodes-available">Nodes Available</h2>
-<p><img alt="Email" src="../images/ansible_codespace.jpg" /></p>
+<p><img alt="Email" src="../images/puppet_codespace.jpeg" /></p>
 <table>
 <thead>
 <tr>
@@ -149,71 +147,54 @@
 </thead>
 <tbody>
 <tr>
-<td align="left">control</td>
-<td align="left">Ansible</td>
+<td align="left">puppet</td>
+<td align="left">puppet</td>
 <td align="left">Ubuntu 18.04</td>
-<td align="left">8000</td>
-<td align="left">8000</td>
+<td align="left">8000,80</td>
+<td align="left">8000,80</td>
 </tr>
 <tr>
-<td align="left">lb</td>
+<td align="left">node1</td>
 <td align="left">Load Balancer</td>
-<td align="left">Centos 6.8</td>
-<td align="left">80</td>
-<td align="left">80</td>
-</tr>
-<tr>
-<td align="left">app1</td>
-<td align="left">App Server</td>
 <td align="left">Centos 6.8</td>
 <td align="left">80</td>
 <td align="left">81</td>
 </tr>
 <tr>
-<td align="left">app2</td>
+<td align="left">node2</td>
 <td align="left">App Server</td>
 <td align="left">Centos 6.8</td>
 <td align="left">80</td>
 <td align="left">82</td>
 </tr>
 <tr>
-<td align="left">app3</td>
+<td align="left">node3</td>
 <td align="left">App Server</td>
-<td align="left">Ubuntu 16.04</td>
+<td align="left">Centos 6.8</td>
 <td align="left">80</td>
 <td align="left">83</td>
 </tr>
 <tr>
-<td align="left">db</td>
+<td align="left">node4</td>
 <td align="left">Database</td>
 <td align="left">Centos 6.8</td>
-<td align="left">3306</td>
-<td align="left">3306</td>
+<td align="left">3306,80</td>
+<td align="left">3306,84</td>
 </tr>
 </tbody>
 </table>
-<h2 id="adding-supporting-code">Adding Supporting Code</h2>
-<p>To help you with the learning process, we have prepared a git repository with the supporting code. In order to use this code, you need to open a terminal, and clone the code from github as follows,</p>
-<ul>
-<li>From menu, select <strong>Terminal -&gt; New Terminal</strong></li>
-<li>From inside the terminal, use git clone command as demonstrated below </li>
-</ul>
-<p><img alt="checking out ansible bootcamp code" src="../images/ansible-code.gif" /></p>
-<pre><code>git clone https://github.com/schoolofdevops/ansible-bootcamp-code.git
-</code></pre>
-
 <h2 id="managing-environment">Managing Environment</h2>
 <p>Once created, you may want to stop the codespaces environment, or at times might have to recreate it completely, or reset a certain node. This section describes how to do so.</p>
 <h3 id="stopping-codespaces-environment">Stopping codespaces environment</h3>
 <p>If you would like to stop the environment created earlier, its as simple as the follows,</p>
 <p><code>run the following from your codespaces directory</code></p>
-<pre><code>cd cs-ansible
+<pre><code>cd cs-puppet
 
 docker-compose stop
 </code></pre>
 
 <p>The above command will shut down the containers/bring those to stopped state.  You could easily start it all again, by running the following command from the same directory.</p>
-<pre><code>cd cs-ansible
+<pre><code>cd cs-puppet
 
 docker-compose up -d
 </code></pre>
@@ -225,44 +206,47 @@ docker-compose up -d
 <li>Find out the name of the node from <strong>docker-compose.yml</strong></li>
 </ul>
 <p>e.g</p>
-<pre><code>  control:
-    image: codespaces/ansible-control:v0.4.0
+<pre><code>services:
+  puppet:
+    image: codespaces/puppet-master:2.0.0
     ports:
       - &quot;8000:8000&quot;
+      - &quot;80:80&quot;
+    environment:
+      JAVA_ARGS: &quot;-Xms256m -Xmx256m -XX:MaxPermSize=256m&quot;
     volumes:
-      - ./code:/workspace
+      - workspace:/workspace
     networks:
-      custom:
-        ipv4_address: 192.168.61.10
-    dns: 8.8.8.8
+      - puppet
+    container_name: puppet
     domainname: codespaces.io
-    hostname: control
+    hostname: puppet
     restart: always
-  lb:
-    image: codespaces/ansible-node-centos-6:v0.3.6
+
+  node1:
+    image: codespaces/puppet-node-centos-6:v0.1.3
     ports:
-       - &quot;80:80&quot;
+       - &quot;81:80&quot;
     networks:
-      custom:
-        ipv4_address: 192.168.61.11
-    dns: 8.8.8.8
+      - puppet
+    container_name: node1
     domainname: codespaces.io
-    hostname: lb
+    hostname: node1
     restart: always
 </code></pre>
 
-<p>In the above snippet of node, there are two nodes viz <strong>control</strong> and <strong>lb</strong></p>
+<p>In the above snippet of node, there are two nodes viz <strong>puppet</strong> and <strong>node1</strong></p>
 <p>You could alternately use the following command to find the node name</p>
 <pre><code>docker-compose ps
 </code></pre>
 
 <ul>
-<li>Once you decide which node you are resetting, run the following command to redo it. I am taking an example of a node by name <strong>lb</strong></li>
+<li>Once you decide which node you are resetting, run the following command to redo it. I am taking an example of a node by name <strong>node1</strong></li>
 </ul>
 <p>e.g.  </p>
-<pre><code>docker-compose stop lb
-docker-compose rm lb
-docker-compose up -d lb
+<pre><code>docker-compose stop node1
+docker-compose rm node1
+docker-compose up -d node1
 </code></pre>
 
 <p>Replace the name of actual node with lb.  That should help you redo the node</p>
@@ -280,10 +264,8 @@ docker-compose up -d
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../puppet/" class="btn btn-neutral float-right" title="Setting up Puppet Codespace">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../ansible/" class="btn btn-neutral" title="Setting up Ansible Codespace"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -309,10 +291,8 @@ docker-compose up -d
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../ansible/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../puppet/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
