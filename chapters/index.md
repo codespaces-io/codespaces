@@ -51,3 +51,9 @@ cd codespaces-master
 
 
 Once cloned/unzipped, make sure you have change into the codespaces directory ( codespaces/codespaces-master)
+
+
+
+## Setting up tool specific codespaces
+
+  * [Ansible Codespace Setup](ansible.md)
