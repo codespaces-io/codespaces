@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Setting up Ansible Codespace - Codespaces Guide</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Setting up Ansible Codespace";
+    var mkdocs_page_input_path = "ansible.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Codespaces Guide</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Setting up Ansible Codespace</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#setting-up-codespaces-ide-for-ansible">Setting up  Codespaces IDE for Ansible</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#use-codespaces-ide">Use Codespaces IDE</a></li>
+        
+            <li><a class="toctree-l3" href="#nodes-available">Nodes Available</a></li>
+        
+            <li><a class="toctree-l3" href="#adding-supporting-code">Adding Supporting Code</a></li>
+        
+            <li><a class="toctree-l3" href="#managing-environment">Managing Environment</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Codespaces Guide</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Setting up Ansible Codespace</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="setting-up-codespaces-ide-for-ansible">Setting up  Codespaces IDE for Ansible</h1>
+<p>After installing Docker-Engine and Docker-Compose, change directory into the corresponding tool you want to setup the environment for.</p>
+<pre><code>cd cs-ansible
+</code></pre>
+
+<p>Then all you need to do is to run</p>
+<pre><code>docker-compose up -d
+</code></pre>
+
+<p>This single command will initialize your Codespaces IDE.</p>
+<h2 id="use-codespaces-ide">Use Codespaces IDE</h2>
+<p>To use Codespaces IDE,</p>
+<ul>
+<li>Open your browser.</li>
+<li>
+<p>Visit your machine's IP with port 8000. (Ex. http://192.168.0.60:8000  or http://localhost:8000)</p>
+</li>
+<li>
+<p>Now you will be presented with the Codespaces IDE console.</p>
+</li>
+</ul>
+<p><img alt="Email" src="../images/codespaces.JPG" /></p>
+<h2 id="nodes-available">Nodes Available</h2>
+<p><img alt="Email" src="../images/ansible_codespace.jpg" /></p>
+<table>
+<thead>
+<tr>
+<th align="left">Containers</th>
+<th align="left">Purpose</th>
+<th align="left">OS</th>
+<th align="left">Port Exposed</th>
+<th align="left">Host Port Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">control</td>
+<td align="left">Ansible</td>
+<td align="left">Ubuntu 18.04</td>
+<td align="left">8000</td>
+<td align="left">8000</td>
+</tr>
+<tr>
+<td align="left">lb</td>
+<td align="left">Load Balancer</td>
+<td align="left">Centos 6.8</td>
+<td align="left">80</td>
+<td align="left">80</td>
+</tr>
+<tr>
+<td align="left">app1</td>
+<td align="left">App Server</td>
+<td align="left">Centos 6.8</td>
+<td align="left">80</td>
+<td align="left">81</td>
+</tr>
+<tr>
+<td align="left">app2</td>
+<td align="left">App Server</td>
+<td align="left">Centos 6.8</td>
+<td align="left">80</td>
+<td align="left">82</td>
+</tr>
+<tr>
+<td align="left">app3</td>
+<td align="left">App Server</td>
+<td align="left">Ubuntu 16.04</td>
+<td align="left">80</td>
+<td align="left">83</td>
+</tr>
+<tr>
+<td align="left">db</td>
+<td align="left">Database</td>
+<td align="left">Centos 6.8</td>
+<td align="left">3306</td>
+<td align="left">3306</td>
+</tr>
+</tbody>
+</table>
+<h2 id="adding-supporting-code">Adding Supporting Code</h2>
+<p>To help you with the learning process, we have prepared a git repository with the supporting code. In order to use this code, you need to open a terminal, and clone the code from github as follows,</p>
+<ul>
+<li>From menu, select <strong>Terminal -&gt; New Terminal</strong></li>
+<li>From inside the terminal, use git clone command as demonstrated below </li>
+</ul>
+<p><img alt="checking out ansible bootcamp code" src="../images/ansible-code.gif" /></p>
+<pre><code>git clone https://github.com/schoolofdevops/ansible-bootcamp-code.git
+</code></pre>
+
+<h2 id="managing-environment">Managing Environment</h2>
+<p>Once created, you may want to stop the codespaces environment, or at times might have to recreate it completely, or reset a certain node. This section describes how to do so.</p>
+<h3 id="stopping-codespaces-environment">Stopping codespaces environment</h3>
+<p>If you would like to stop the environment created earlier, its as simple as the follows,</p>
+<p><code>run the following from your codespaces directory</code></p>
+<pre><code>cd cs-ansible
+
+docker-compose stop
+</code></pre>
+
+<p>The above command will shut down the containers/bring those to stopped state.  You could easily start it all again, by running the following command from the same directory.</p>
+<pre><code>cd cs-ansible
+
+docker-compose up -d
+</code></pre>
+
+<h3 id="resetting-the-nodesenvironment">Resetting the nodes/environment</h3>
+<p>Since this is a docker based environment, its easy to rest a node, or even the complete environment.  </p>
+<p>To reset a node,</p>
+<ul>
+<li>Find out the name of the node from <strong>docker-compose.yml</strong></li>
+</ul>
+<p>e.g</p>
+<pre><code>  control:
+    image: codespaces/ansible-control:v0.4.0
+    ports:
+      - &quot;8000:8000&quot;
+    volumes:
+      - ./code:/workspace
+    networks:
+      custom:
+        ipv4_address: 192.168.61.10
+    dns: 8.8.8.8
+    domainname: codespaces.io
+    hostname: control
+    restart: always
+  lb:
+    image: codespaces/ansible-node-centos-6:v0.3.6
+    ports:
+       - &quot;80:80&quot;
+    networks:
+      custom:
+        ipv4_address: 192.168.61.11
+    dns: 8.8.8.8
+    domainname: codespaces.io
+    hostname: lb
+    restart: always
+</code></pre>
+
+<p>In the above snippet of node, there are two nodes viz <strong>control</strong> and <strong>lb</strong></p>
+<p>You could alternately use the following command to find the node name</p>
+<pre><code>docker-compose ps
+</code></pre>
+
+<ul>
+<li>Once you decide which node you are resetting, run the following command to redo it. I am taking an example of a node by name <strong>lb</strong></li>
+</ul>
+<p>e.g.  </p>
+<pre><code>docker-compose stop lb
+docker-compose rm lb
+docker-compose up -d lb
+</code></pre>
+
+<p>Replace the name of actual node with lb.  That should help you redo the node</p>
+<p>To reset the complete environment,</p>
+<pre><code>docker-compose down
+docker-compose up -d  
+
+</code></pre>
+
+<p>The above command will recreate the nodes, without deleting your workspaces. Any files that you had created would still be available after you re launch the environment.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

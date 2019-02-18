@@ -59,12 +59,23 @@
         
             <li><a class="toctree-l3" href="#what-is-codespaces">What is Codespaces</a></li>
         
-            <li><a class="toctree-l3" href="#how-do-you-use-codespaces-ide-in-your-machine">How do you use Codespaces IDE in your machine?</a></li>
+            <li><a class="toctree-l3" href="#setting-up-codespaces">Setting up Codespaces</a></li>
+        
+            <li><a class="toctree-l3" href="#docker-installation">Docker Installation</a></li>
+        
+            <li><a class="toctree-l3" href="#setup-codespaces-repo">Setup Codespaces Repo</a></li>
+        
+            <li><a class="toctree-l3" href="#setting-up-tool-specific-codespaces">Setting up tool specific codespaces</a></li>
         
         </ul>
     
 
     </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="ansible/">Setting up Ansible Codespace</a>
 	    </li>
           
         </ul>
@@ -101,92 +112,54 @@
               
                 <h1 id="codespaces">Codespaces</h1>
 <h2 id="what-is-codespaces">What is Codespaces</h2>
-<p>Codespaces is a tool created by <strong>School of Devops</strong> </p>
-<h2 id="how-do-you-use-codespaces-ide-in-your-machine">How do you use Codespaces IDE in your machine?</h2>
-<h3 id="docker-installation">Docker Installation</h3>
-<p>We assume that you have installed Docker-Engine and Docker-Compose in your machine. If not, please follow the below mentioned references to get started with Docker and Docker-Compose.
-  * <a href="https://docs.docker.com/engine/installation/">Docker-Engine Installation Tutorial</a>
-  * <a href="https://docs.docker.com/compose/install/">Docker-Compose Installation Tutorial</a></p>
-<h3 id="start-codespaces-ide">Start Codespaces IDE</h3>
-<p>After installing Docker-Engine and Docker-Compose, change directory into the corresponding tool you want to learn. For example, let us assume that you want to learn puppet. In that case,</p>
-<pre><code>cd cs-xxx
-</code></pre>
-
-<p>where xxx is the codespace you are setting up. </p>
-<p>e.g. </p>
-<pre><code>cd cs-ansible
-cd cs-chef-ci 
-cd cs-puppet-ci
-</code></pre>
-
-<p>Then all you need to do is to run</p>
-<pre><code>docker-compose up -d
-</code></pre>
-
-<p>This single command will initialize your Codespaces IDE.</p>
-<h3 id="use-codespaces-ide">Use Codespaces IDE</h3>
-<p>To use Codespaces IDE,</p>
+<p>Codespaces is a tool created by <strong>School of Devops</strong> to simplify your learning environment setup and offers an IDE with integrated workspace, editor, terminal and nodes.</p>
+<p>Following digram is an example of a codespaces environment.</p>
+<p><img alt="Codespaces" src="images/codespaces.JPG" /></p>
+<h2 id="setting-up-codespaces">Setting up Codespaces</h2>
+<p>The easiest way to setup codespaces environment is by installing docker on your local system or even a remote server. Following section would point you to docker installation instructions.</p>
+<h2 id="docker-installation">Docker Installation</h2>
+<p>We assume that you have installed Docker-Engine and Docker-Compose in your machine. If not, please follow the below mentioned references to get started with Docker and Docker-Compose</p>
 <ul>
-<li>Open your browser.</li>
-<li>Visit your machine's IP with port 8000. (Ex. http://192.168.0.60:8080)</li>
-<li>You will be asked for your e-mail address. Enter it and you are good to go.</li>
+<li><a href="https://docs.docker.com/docker-for-windows/install/">Installing Docker Desktop on Windows</a></li>
+<li><a href="https://docs.docker.com/docker-for-mac/install/">Installing Docker Desktop on Mac</a></li>
+<li><a href="https://docs.docker.com/install/">Docker-Engine Installation Guides for Linux</a></li>
+<li><a href="https://docs.docker.com/compose/install/">Docker-Compose Installation Guides</a></li>
 </ul>
-<p><img alt="Email" src="images/email.jpg" /></p>
-<ul>
-<li>Now you will be presented with the Codespaces IDE console.</li>
-</ul>
-<p><img alt="Landing" src="images/landing.jpg" /></p>
-<h3 id="resetting-a-node">Resetting a Node</h3>
-<p>Since this is a docker based environment, its easy to rest a node. To do that, follow this process, </p>
-<ul>
-<li>Find out the name of the node from <strong>docker-compose.yml</strong></li>
-</ul>
-<p>e.g</p>
-<pre><code>  control:
-    image: codespaces/ansible-control:v0.4.0
-    ports:
-      - &quot;8000:8000&quot;
-    volumes:
-      - ./code:/workspace
-    networks:
-      custom:
-        ipv4_address: 192.168.61.10
-    dns: 8.8.8.8
-    domainname: codespaces.io
-    hostname: control
-    restart: always
-  lb:
-    image: codespaces/ansible-node-centos-6:v0.3.6
-    ports:
-       - &quot;80:80&quot;
-    networks:
-      custom:
-        ipv4_address: 192.168.61.11
-    dns: 8.8.8.8
-    domainname: codespaces.io
-    hostname: lb
-    restart: always
+<h2 id="setup-codespaces-repo">Setup Codespaces Repo</h2>
+<p>Clone or download the codespaces-io repository by using <code>either</code> of the following commands</p>
+<p><strong> Option 1</strong> : Git Clone</p>
+<p>to clone using git,</p>
+<pre><code>git clone https://github.com/codespaces-io/codespaces.git
+
+cd codespaces
 </code></pre>
 
-<p>In the above snippet of node, there are two nodes viz <strong>control</strong> and <strong>lb</strong></p>
-<p>You could alternately use the following command to find the node name </p>
-<pre><code>docker-compose ps
+<p><strong> Option 2</strong> : Zip File Download <code>dont run this if cloned using above instructions</code></p>
+<p>to download a zip file</p>
+<pre><code>wget https://github.com/codespaces-io/codespaces/archive/master.zip
+
+unzip master.zip
+
+
+cd codespaces-master
 </code></pre>
 
+<p>Once cloned/unzipped, make sure you have change into the codespaces directory ( codespaces/codespaces-master)</p>
+<h2 id="setting-up-tool-specific-codespaces">Setting up tool specific codespaces</h2>
 <ul>
-<li>Once you decide which node you are resetting, run the following command to redo it. I am taking an example of a node by name <strong>lb</strong></li>
+<li><a href="ansible/">Ansible Codespace Setup</a></li>
 </ul>
-<p>e.g.  </p>
-<pre><code>docker-compose stop lb 
-docker-compose rm lb 
-docker-compose up -d lb 
-</code></pre>
-
-<p>Replace the name of actual node with lb.  That should help you redo the node. </p>
               
             </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ansible/" class="btn btn-neutral float-right" title="Setting up Ansible Codespace">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
   
 
   <hr/>
@@ -211,6 +184,8 @@ docker-compose up -d lb
       
       
       
+        <span style="margin-left: 15px"><a href="ansible/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
     </span>
 </div>
     <script>var base_url = '.';</script>
@@ -222,5 +197,5 @@ docker-compose up -d lb
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2019-02-18 04:24:45
+Build Date UTC : 2019-02-18 06:15:29
 -->
