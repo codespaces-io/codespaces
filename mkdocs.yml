@@ -2,6 +2,7 @@ site_name: Codespaces Guide
 pages:
   - Home: "index.md"
   - Setting up Ansible Codespace: "ansible.md"
+  - Setting up Puppet Codespace: "puppet.md"
 docs_dir: chapters
 theme: readthedocs
 plugins:
