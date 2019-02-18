@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="None">
+  
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Home - Codespaces Guide</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Home";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> Codespaces Guide</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href=".">Home</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#codespaces">Codespaces</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#what-is-codespaces">What is Codespaces</a></li>
+        
+            <li><a class="toctree-l3" href="#how-do-you-use-codespaces-ide-in-your-machine">How do you use Codespaces IDE in your machine?</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">Codespaces Guide</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Home</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="codespaces">Codespaces</h1>
+<h2 id="what-is-codespaces">What is Codespaces</h2>
+<p>Codespaces is a tool created by <strong>School of Devops</strong> </p>
+<h2 id="how-do-you-use-codespaces-ide-in-your-machine">How do you use Codespaces IDE in your machine?</h2>
+<h3 id="docker-installation">Docker Installation</h3>
+<p>We assume that you have installed Docker-Engine and Docker-Compose in your machine. If not, please follow the below mentioned references to get started with Docker and Docker-Compose.
+  * <a href="https://docs.docker.com/engine/installation/">Docker-Engine Installation Tutorial</a>
+  * <a href="https://docs.docker.com/compose/install/">Docker-Compose Installation Tutorial</a></p>
+<h3 id="start-codespaces-ide">Start Codespaces IDE</h3>
+<p>After installing Docker-Engine and Docker-Compose, change directory into the corresponding tool you want to learn. For example, let us assume that you want to learn puppet. In that case,</p>
+<pre><code>cd cs-xxx
+</code></pre>
+
+<p>where xxx is the codespace you are setting up. </p>
+<p>e.g. </p>
+<pre><code>cd cs-ansible
+cd cs-chef-ci 
+cd cs-puppet-ci
+</code></pre>
+
+<p>Then all you need to do is to run</p>
+<pre><code>docker-compose up -d
+</code></pre>
+
+<p>This single command will initialize your Codespaces IDE.</p>
+<h3 id="use-codespaces-ide">Use Codespaces IDE</h3>
+<p>To use Codespaces IDE,</p>
+<ul>
+<li>Open your browser.</li>
+<li>Visit your machine's IP with port 8000. (Ex. http://192.168.0.60:8080)</li>
+<li>You will be asked for your e-mail address. Enter it and you are good to go.</li>
+</ul>
+<p><img alt="Email" src="images/email.jpg" /></p>
+<ul>
+<li>Now you will be presented with the Codespaces IDE console.</li>
+</ul>
+<p><img alt="Landing" src="images/landing.jpg" /></p>
+<h3 id="resetting-a-node">Resetting a Node</h3>
+<p>Since this is a docker based environment, its easy to rest a node. To do that, follow this process, </p>
+<ul>
+<li>Find out the name of the node from <strong>docker-compose.yml</strong></li>
+</ul>
+<p>e.g</p>
+<pre><code>  control:
+    image: codespaces/ansible-control:v0.4.0
+    ports:
+      - &quot;8000:8000&quot;
+    volumes:
+      - ./code:/workspace
+    networks:
+      custom:
+        ipv4_address: 192.168.61.10
+    dns: 8.8.8.8
+    domainname: codespaces.io
+    hostname: control
+    restart: always
+  lb:
+    image: codespaces/ansible-node-centos-6:v0.3.6
+    ports:
+       - &quot;80:80&quot;
+    networks:
+      custom:
+        ipv4_address: 192.168.61.11
+    dns: 8.8.8.8
+    domainname: codespaces.io
+    hostname: lb
+    restart: always
+</code></pre>
+
+<p>In the above snippet of node, there are two nodes viz <strong>control</strong> and <strong>lb</strong></p>
+<p>You could alternately use the following command to find the node name </p>
+<pre><code>docker-compose ps
+</code></pre>
+
+<ul>
+<li>Once you decide which node you are resetting, run the following command to redo it. I am taking an example of a node by name <strong>lb</strong></li>
+</ul>
+<p>e.g.  </p>
+<pre><code>docker-compose stop lb 
+docker-compose rm lb 
+docker-compose up -d lb 
+</code></pre>
+
+<p>Replace the name of actual node with lb.  That should help you redo the node. </p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2019-02-18 04:24:45
+-->
