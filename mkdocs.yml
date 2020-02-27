@@ -1,5 +1,5 @@
 site_name: Codespaces Guide
-pages:
+nav:
   - Home: "index.md"
   - Setting up Ansible Codespace: "ansible.md"
   - Setting up Puppet Codespace: "puppet.md"
@@ -7,3 +7,18 @@ docs_dir: chapters
 theme: readthedocs
 plugins:
     - search
+site_url: http://codespaces.schoolofdevops.com/
+site_author: Gourav Shah
+site_description: Codespaces by School of Devops
+google_analytics: ['', 'codespaces.schoolofdevops.com']
+repo_url: https://github.com/codespaces-io/codespaces
+edit_uri: edit/chapters/manuscript
+copyright: Copyright @ 2017-2020 Gourav Shah, School of Devops. Some rights reserved. License CC BY-NC-SA
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/schoolofdevops'
+    - type: 'twitter'
+      link: 'https://twitter.com/gouravhah'
+    - type: 'linkedin'
+      link: 'https://www.linkedin.com/in/gouravshah'
