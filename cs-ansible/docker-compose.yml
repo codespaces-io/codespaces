@@ -59,7 +59,7 @@ services:
     hostname: app2
     restart: always
   app3:
-    image: codespaces/ansible-node-ubuntu-1404:v0.1.0
+    image: codespaces/ansible-node-ubuntu:1804-python3
     ports:
       - "83:80"
     networks:
