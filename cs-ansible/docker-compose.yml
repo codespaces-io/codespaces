@@ -13,7 +13,7 @@ volumes:
   
 services:
   control:
-    image: codespaces/ansible-control:v2.0.3
+    image: codespaces/ansible-control:2.9.17
     ports:
       - "8000:8000"
     volumes:
