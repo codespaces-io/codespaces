@@ -1,0 +1,82 @@
+version: '2'
+
+networks:
+  custom:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.61.0/24
+
+volumes: 
+  workspace: 
+  
+services:
+  control:
+    image: codespaces/ansible-control:2.9.17
+    ports:
+      - "8000:8000"
+    volumes:
+      - workspace:/workspace
+    networks:
+      custom:
+        ipv4_address: 192.168.61.10
+    dns: 8.8.8.8
+    domainname: codespaces.io
+    hostname: control
+    restart: always
+  lb:
+    image: codespaces/ansible-node:ubuntu1804
+    ports:
+       - "80:80"
+    networks:
+      custom:
+        ipv4_address: 192.168.61.11
+    dns: 8.8.8.8
+    domainname: codespaces.io
+    hostname: lb
+    restart: always
+  app1:
+    image: codespaces/ansible-node:ubuntu1804
+    ports:
+       - "81:80"
+    networks:
+      custom:
+        ipv4_address: 192.168.61.12
+    dns: 8.8.8.8
+    domainname: codespaces.io
+    hostname: app1
+    restart: always
+  app2:
+    image: codespaces/ansible-node:ubuntu1804
+    ports:
+      - "82:80"
+    networks:
+      custom:
+        ipv4_address: 192.168.61.13
+    dns: 8.8.8.8
+    domainname: codespaces.io
+    hostname: app2
+    restart: always
+  app3:
+    image: codespaces/ansible-node:ubuntu1804
+    ports:
+      - "83:80"
+    networks:
+      custom:
+        ipv4_address: 192.168.61.15
+    dns: 8.8.8.8
+    domainname: codespaces.io
+    hostname: app3
+    restart: always
+  db:
+    image: codespaces/ansible-node:ubuntu1804
+    ports:
+      - "3306:3306"
+    networks:
+      custom:
+        ipv4_address: 192.168.61.14
+    dns: 8.8.8.8
+    domainname: codespaces.io
+    hostname: db
+    restart: always
