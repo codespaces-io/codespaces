@@ -1,5 +1,3 @@
-version: '2'
-
 networks:
   custom:
     driver: bridge
@@ -12,23 +10,11 @@ volumes:
   workspace: 
   
 services:
-  control:
-    image: codespaces/ansible-control:2.9.17
-    ports:
-      - "8000:8000"
-    volumes:
-      - workspace:/workspace
-    networks:
-      custom:
-        ipv4_address: 192.168.61.10
-    dns: 8.8.8.8
-    domainname: codespaces.io
-    hostname: control
-    restart: always
   lb:
-    image: codespaces/ansible-node:ubuntu1804
+    image: codespaces/ansible-node:ubuntu2404
     ports:
        - "80:80"
+       - "2220:22"
     networks:
       custom:
         ipv4_address: 192.168.61.11
@@ -37,9 +23,10 @@ services:
     hostname: lb
     restart: always
   app1:
-    image: codespaces/ansible-node:ubuntu1804
+    image: codespaces/ansible-node:ubuntu2404
     ports:
        - "81:80"
+       - "2221:22"
     networks:
       custom:
         ipv4_address: 192.168.61.12
@@ -48,9 +35,10 @@ services:
     hostname: app1
     restart: always
   app2:
-    image: codespaces/ansible-node:ubuntu1804
+    image: codespaces/ansible-node:ubuntu2404
     ports:
       - "82:80"
+      - "2222:22"
     networks:
       custom:
         ipv4_address: 192.168.61.13
@@ -59,9 +47,10 @@ services:
     hostname: app2
     restart: always
   app3:
-    image: codespaces/ansible-node:ubuntu1804
+    image: codespaces/ansible-node:ubuntu2404
     ports:
       - "83:80"
+      - "2223:22"
     networks:
       custom:
         ipv4_address: 192.168.61.15
@@ -70,9 +59,10 @@ services:
     hostname: app3
     restart: always
   db:
-    image: codespaces/ansible-node:ubuntu1804
+    image: codespaces/ansible-node:ubuntu2404
     ports:
       - "3306:3306"
+      - "2224:22"
     networks:
       custom:
         ipv4_address: 192.168.61.14
@@ -80,3 +70,4 @@ services:
     domainname: codespaces.io
     hostname: db
     restart: always
+
